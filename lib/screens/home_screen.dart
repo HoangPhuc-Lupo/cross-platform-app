@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import '../models/comic.dart';
 import '../widgets/comic_card.dart';
 import 'ranking_screen.dart';
 import 'favorites_screen.dart';
 import 'comic_detail_screen.dart';
+=======
+>>>>>>> 3d5751bbd44ee61f09b0ea4101a432569a158573
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,11 +17,41 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments;
     final username = (args is String && args.isNotEmpty) ? args : 'user';
+<<<<<<< HEAD
 
     final comics = demoComics; // dùng demo list
 
     final theme = Theme.of(context);
 
+=======
+    final theme = Theme.of(context);
+
+    final categories = ['Hài hước', 'Truyện manga', 'Trẻ em'];
+
+    final comics = [
+      Comic(
+        title: 'demo sua truyen',
+        chapter: 'Chap 1',
+        image: 'assets/images/comic1.jpg',
+      ),
+      Comic(
+        title: 'Dở dáng ghét',
+        chapter: 'Chap 1',
+        image: 'assets/images/comic2.jpg',
+      ),
+      Comic(
+        title: 'Truyện tranh 3',
+        chapter: 'Chap 1',
+        image: 'assets/images/comic3.jpg',
+      ),
+      Comic(
+        title: 'Truyện tranh 4',
+        chapter: 'Chap 1',
+        image: 'assets/images/comic1.jpg',
+      ),
+    ];
+
+>>>>>>> 3d5751bbd44ee61f09b0ea4101a432569a158573
     return Scaffold(
       appBar: AppBar(
         backgroundColor: theme.primaryColor,
@@ -32,6 +65,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         actions: [
+<<<<<<< HEAD
           IconButton(
             icon: const Icon(Icons.leaderboard),
             onPressed: () {
@@ -44,6 +78,10 @@ class HomeScreen extends StatelessWidget {
               Navigator.pushNamed(context, FavoritesScreen.routeName);
             },
           ),
+=======
+          IconButton(icon: const Icon(Icons.tune), onPressed: () {}),
+          IconButton(icon: const Icon(Icons.settings), onPressed: () {}),
+>>>>>>> 3d5751bbd44ee61f09b0ea4101a432569a158573
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -87,10 +125,16 @@ class HomeScreen extends StatelessWidget {
               height: 36,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
+<<<<<<< HEAD
                 itemCount: 3,
                 separatorBuilder: (_, __) => const SizedBox(width: 8),
                 itemBuilder: (context, index) {
                   final labels = ['Hài hước', 'Truyện manga', 'Trẻ em'];
+=======
+                itemCount: categories.length,
+                separatorBuilder: (_, __) => const SizedBox(width: 8),
+                itemBuilder: (context, index) {
+>>>>>>> 3d5751bbd44ee61f09b0ea4101a432569a158573
                   return Chip(
                     backgroundColor: Colors.orange,
                     padding: const EdgeInsets.symmetric(
@@ -98,7 +142,11 @@ class HomeScreen extends StatelessWidget {
                       vertical: 0,
                     ),
                     label: Text(
+<<<<<<< HEAD
                       labels[index],
+=======
+                      categories[index],
+>>>>>>> 3d5751bbd44ee61f09b0ea4101a432569a158573
                       style: const TextStyle(color: Colors.white),
                     ),
                   );
@@ -126,6 +174,7 @@ class HomeScreen extends StatelessWidget {
                 childAspectRatio: 0.55,
               ),
               itemBuilder: (context, index) {
+<<<<<<< HEAD
                 final comic = comics[index];
                 return ComicCard(
                   comic: comic,
@@ -137,6 +186,9 @@ class HomeScreen extends StatelessWidget {
                     );
                   },
                 );
+=======
+                return ComicCard(comic: comics[index]);
+>>>>>>> 3d5751bbd44ee61f09b0ea4101a432569a158573
               },
             ),
           ],
@@ -145,3 +197,75 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+<<<<<<< HEAD
+=======
+
+// ================== MODEL + CARD ==================
+
+class Comic {
+  final String title;
+  final String chapter;
+  final String image;
+
+  Comic({required this.title, required this.chapter, required this.image});
+}
+
+class ComicCard extends StatelessWidget {
+  final Comic comic;
+
+  const ComicCard({super.key, required this.comic});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 1,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      clipBehavior: Clip.antiAlias,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Image.asset(
+              comic.image,
+              fit: BoxFit.cover,
+              width: double.infinity,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  comic.title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      comic.chapter,
+                      style: const TextStyle(color: Colors.grey, fontSize: 12),
+                    ),
+                    const Icon(
+                      Icons.favorite_border,
+                      size: 16,
+                      color: Colors.pink,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+>>>>>>> 3d5751bbd44ee61f09b0ea4101a432569a158573

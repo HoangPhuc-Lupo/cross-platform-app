@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 
 import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
@@ -7,6 +8,11 @@ import 'screens/ranking_screen.dart';
 import 'screens/favorites_screen.dart';
 import 'screens/comic_detail_screen.dart';
 import 'screens/chapter_reader_screen.dart';
+=======
+import 'screens/login_screen.dart';
+import 'screens/register_screen.dart';
+import 'screens/home_screen.dart';
+>>>>>>> 3d5751bbd44ee61f09b0ea4101a432569a158573
 
 void main() {
   runApp(const NetTruyenApp());
@@ -62,10 +68,13 @@ class NetTruyenApp extends StatelessWidget {
         LoginScreen.routeName: (_) => const LoginScreen(),
         RegisterScreen.routeName: (_) => const RegisterScreen(),
         HomeScreen.routeName: (_) => const HomeScreen(),
+<<<<<<< HEAD
         RankingScreen.routeName: (_) => const RankingScreen(),
         FavoritesScreen.routeName: (_) => const FavoritesScreen(),
         ComicDetailScreen.routeName: (_) => const ComicDetailScreen(),
         ChapterReaderScreen.routeName: (_) => const ChapterReaderScreen(),
+=======
+>>>>>>> 3d5751bbd44ee61f09b0ea4101a432569a158573
       },
     );
   }
